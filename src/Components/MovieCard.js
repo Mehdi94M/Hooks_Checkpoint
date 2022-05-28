@@ -1,7 +1,8 @@
 import React from 'react'
-import { Card,ListGroup,ListGroupItem } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import './Components.css';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 
 function MovieCard({el}) {
@@ -10,21 +11,24 @@ function MovieCard({el}) {
        <div >
           
             <Card className="card" name="one" style={{ width: '18rem' }}>
-            {/* <Card.Img variant="top" src={el.image}/> */}
+            <Card.Img variant="top" src={el.posterUrl}/>
             <Card.Body>
               <Card.Title>{el.name}</Card.Title>
               <Card.Text>
               {el.description}
               </Card.Text>
-           <a href={el.Url}>Watch it</a>
+
+              <Link to={`/trailer/${el.id}`}>
+                <Button variant='primary'>watch it</Button>
+                </Link>
              <div className="star"> <ReactStars 
               count={5}
               edit={false}
               size={24}
-              value={el.rating}
+              value={el.rate}
               activeColor="#ffd700"
             /></div>
-              <Card.Link href="#">ADD</Card.Link>
+          
             </Card.Body>
           </Card>
            

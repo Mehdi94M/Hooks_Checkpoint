@@ -7,7 +7,7 @@ function MovieList({film,text,rate}) {
 
   return (
     <div className="movies">
-      {film.filter(el=>el.name.toLowerCase().includes(text.toLowerCase().trim())&& el.rating >= rate ).map(el=><MovieCard el={el} />)}
+      {film.filter(el=>el.title.toLowerCase().includes(text.toLowerCase().trim())&& el.rate >= rate ).map(el=><MovieCard el={el} />)}
     </div>
     
   )
